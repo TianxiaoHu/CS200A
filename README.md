@@ -11,6 +11,10 @@ Assignments, notes and projects for [CS200A(DS100)](http://www.ds100.org/fa18/) 
 
   (submit via DataHub, no hidden tests. released each Sunday noon and due each Monday midnight)
 
+- **/lec** folder contains demo notebooks used in lectures
+
+- **/slide** folder contains the slides used in lectures
+
 ref:
 
 - https://github.com/DS-100
