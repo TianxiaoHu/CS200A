@@ -410,7 +410,7 @@ Total & 41\tabularnewline
 \end{longtable}
 
     \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor} }]:} \PY{c+c1}{\PYZsh{} Run this cell to set up your notebook.  Make sure ds100\PYZus{}utils.py is in this assignment\PYZsq{}s folder}
+{\color{incolor}In [{\color{incolor}2}]:} \PY{c+c1}{\PYZsh{} Run this cell to set up your notebook.  Make sure ds100\PYZus{}utils.py is in this assignment\PYZsq{}s folder}
         \PY{k+kn}{import} \PY{n+nn}{seaborn} \PY{k}{as} \PY{n+nn}{sns}
         \PY{k+kn}{import} \PY{n+nn}{csv}
         \PY{k+kn}{import} \PY{n+nn}{numpy} \PY{k}{as} \PY{n+nn}{np}
@@ -537,7 +537,7 @@ count of total rental bikes including casual and registered\strut
     \subsubsection{Download the Data}\label{download-the-data}
 
     \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor} }]:} \PY{c+c1}{\PYZsh{} Run this cell to download the data.  No further action is needed}
+{\color{incolor}In [{\color{incolor}3}]:} \PY{c+c1}{\PYZsh{} Run this cell to download the data.  No further action is needed}
         
         \PY{n}{data\PYZus{}url} \PY{o}{=} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{https://github.com/DS\PYZhy{}100/fa18/raw/gh\PYZhy{}pages/assets/datasets/hw2\PYZhy{}bikeshare.zip}\PY{l+s+s1}{\PYZsq{}}
         \PY{n}{file\PYZus{}name} \PY{o}{=} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{data.zip}\PY{l+s+s1}{\PYZsq{}}
@@ -558,17 +558,35 @@ count of total rental bikes including casual and registered\strut
 \end{Verbatim}
 
 
+    \begin{Verbatim}[commandchars=\\\{\}]
+Using version already downloaded: Fri Sep 14 06:15:39 2018
+MD5 hash of file: 2bcd2ca89278a8230f4e9461455c0811
+Saved at data.zip
+Extracted Files:
+	 data/bikeshare.txt
+
+    \end{Verbatim}
+
     \subsubsection{Examining the file
 contents}\label{examining-the-file-contents}
 
 Can you identify the file format? (No answer required.)
 
     \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor} }]:} \PY{c+c1}{\PYZsh{} Run this cell to look at the top of the file.  No further action is needed}
+{\color{incolor}In [{\color{incolor}4}]:} \PY{c+c1}{\PYZsh{} Run this cell to look at the top of the file.  No further action is needed}
         \PY{k}{for} \PY{n}{line} \PY{o+ow}{in} \PY{n}{ds100\PYZus{}utils}\PY{o}{.}\PY{n}{head}\PY{p}{(}\PY{n}{data\PYZus{}dir}\PY{o}{/}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{bikeshare.txt}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{p}{:}
             \PY{n+nb}{print}\PY{p}{(}\PY{n}{line}\PY{p}{,}\PY{n}{end}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
 \end{Verbatim}
 
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+instant,dteday,season,yr,mnth,hr,holiday,weekday,workingday,weathersit,temp,atemp,hum,windspeed,casual,registered,cnt
+1,2011-01-01,1,0,1,0,0,6,0,1,0.24,0.2879,0.81,0,3,13,16
+2,2011-01-01,1,0,1,1,0,6,0,1,0.22,0.2727,0.8,0,8,32,40
+3,2011-01-01,1,0,1,2,0,6,0,1,0.22,0.2727,0.8,0,5,27,32
+4,2011-01-01,1,0,1,3,0,6,0,1,0.24,0.2879,0.75,0,3,10,13
+
+    \end{Verbatim}
 
     \subsubsection{Size}\label{size}
 
@@ -576,32 +594,58 @@ Is the file big? How many records do we expect to find? (No answers
 required.)
 
     \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor} }]:} \PY{c+c1}{\PYZsh{} Run this cell to view some metadata.  No further action is needed}
+{\color{incolor}In [{\color{incolor}5}]:} \PY{c+c1}{\PYZsh{} Run this cell to view some metadata.  No further action is needed}
         \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Size:}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{p}{(}\PY{n}{data\PYZus{}dir}\PY{o}{/}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{bikeshare.txt}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}\PY{o}{.}\PY{n}{stat}\PY{p}{(}\PY{p}{)}\PY{o}{.}\PY{n}{st\PYZus{}size}\PY{p}{,} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{bytes}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
         \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Line Count:}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{ds100\PYZus{}utils}\PY{o}{.}\PY{n}{line\PYZus{}count}\PY{p}{(}\PY{n}{data\PYZus{}dir}\PY{o}{/}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{bikeshare.txt}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}\PY{p}{,} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{lines}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
 \end{Verbatim}
 
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+Size: 1156736 bytes
+Line Count: 17380 lines
+
+    \end{Verbatim}
 
     \subsubsection{Loading the data}\label{loading-the-data}
 
 The following code loads the data into a Pandas DataFrame.
 
     \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor} }]:} \PY{c+c1}{\PYZsh{} Run this cell to load the data.  No further action is needed}
+{\color{incolor}In [{\color{incolor}6}]:} \PY{c+c1}{\PYZsh{} Run this cell to load the data.  No further action is needed}
         \PY{n}{bike} \PY{o}{=} \PY{n}{pd}\PY{o}{.}\PY{n}{read\PYZus{}csv}\PY{p}{(}\PY{n}{data\PYZus{}dir}\PY{o}{/}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{bikeshare.txt}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
         \PY{n}{bike}\PY{o}{.}\PY{n}{head}\PY{p}{(}\PY{p}{)}
 \end{Verbatim}
 
 
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}6}]:}    instant      dteday  season  yr  mnth  hr  holiday  weekday  workingday  \textbackslash{}
+        0        1  2011-01-01       1   0     1   0        0        6           0   
+        1        2  2011-01-01       1   0     1   1        0        6           0   
+        2        3  2011-01-01       1   0     1   2        0        6           0   
+        3        4  2011-01-01       1   0     1   3        0        6           0   
+        4        5  2011-01-01       1   0     1   4        0        6           0   
+        
+           weathersit  temp   atemp   hum  windspeed  casual  registered  cnt  
+        0           1  0.24  0.2879  0.81        0.0       3          13   16  
+        1           1  0.22  0.2727  0.80        0.0       8          32   40  
+        2           1  0.22  0.2727  0.80        0.0       5          27   32  
+        3           1  0.24  0.2879  0.75        0.0       3          10   13  
+        4           1  0.24  0.2879  0.75        0.0       0           1    1  
+\end{Verbatim}
+            
     Below, we show the shape of the file. You should see that the size of
 the dataframe matches the number of lines in the file, minus the header
 row.
 
     \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor} }]:} \PY{n}{bike}\PY{o}{.}\PY{n}{shape}
+{\color{incolor}In [{\color{incolor}7}]:} \PY{n}{bike}\PY{o}{.}\PY{n}{shape}
 \end{Verbatim}
 
 
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}7}]:} (17379, 17)
+\end{Verbatim}
+            
     \begin{center}\rule{0.5\linewidth}{\linethickness}\end{center}
 
 \subsection{1: Data Preparation}\label{data-preparation}
@@ -666,16 +710,20 @@ described in the documentation as "nested-dictonaries", though there are
 many possible solutions.
 
     \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor} }]:} \PY{c+c1}{\PYZsh{} Modify holiday weekday, workingday, and weathersit here}
+{\color{incolor}In [{\color{incolor}8}]:} \PY{c+c1}{\PYZsh{} Modify holiday weekday, workingday, and weathersit here}
         \PY{c+c1}{\PYZsh{} Hint: one strategy involves df.replace(...)}
-        
+        \PY{n}{bike} \PY{o}{=} \PY{n}{bike}\PY{o}{.}\PY{n}{replace}\PY{p}{(}\PY{p}{\PYZob{}}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{holiday}\PY{l+s+s2}{\PYZdq{}}\PY{p}{:} \PY{p}{\PYZob{}}\PY{l+m+mi}{0}\PY{p}{:} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{no}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{l+m+mi}{1}\PY{p}{:} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{yes}\PY{l+s+s2}{\PYZdq{}}\PY{p}{\PYZcb{}}\PY{p}{,} 
+                      \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{weekday}\PY{l+s+s2}{\PYZdq{}}\PY{p}{:} \PY{p}{\PYZob{}}\PY{l+m+mi}{0}\PY{p}{:} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Sun}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{l+m+mi}{1}\PY{p}{:} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Mon}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{l+m+mi}{2}\PY{p}{:}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Tue}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{l+m+mi}{3}\PY{p}{:}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Wed}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{l+m+mi}{4}\PY{p}{:}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Thu}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{l+m+mi}{5}\PY{p}{:}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Fri}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{l+m+mi}{6}\PY{p}{:} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Sat}\PY{l+s+s2}{\PYZdq{}}\PY{p}{\PYZcb{}}\PY{p}{,}
+                      \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{workingday}\PY{l+s+s2}{\PYZdq{}}\PY{p}{:} \PY{p}{\PYZob{}}\PY{l+m+mi}{0}\PY{p}{:} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{no}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{l+m+mi}{1}\PY{p}{:} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{yes}\PY{l+s+s2}{\PYZdq{}}\PY{p}{\PYZcb{}}\PY{p}{,} 
+                      \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{weathersit}\PY{l+s+s2}{\PYZdq{}}\PY{p}{:} \PY{p}{\PYZob{}}\PY{l+m+mi}{1}\PY{p}{:} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Light}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{l+m+mi}{2}\PY{p}{:} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Clear}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{l+m+mi}{3}\PY{p}{:} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Mist}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{l+m+mi}{4}\PY{p}{:} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Heavy}\PY{l+s+s2}{\PYZdq{}}\PY{p}{\PYZcb{}}\PY{p}{\PYZcb{}}\PY{p}{)}
         \PY{c+c1}{\PYZsh{} YOUR CODE HERE}
-        \PY{k}{raise} \PY{n+ne}{NotImplementedError}\PY{p}{(}\PY{p}{)}
+        
+        \PY{c+c1}{\PYZsh{} raise NotImplementedError()}
 \end{Verbatim}
 
 
     \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor} }]:} \PY{k}{assert} \PY{n+nb}{isinstance}\PY{p}{(}\PY{n}{bike}\PY{p}{,} \PY{n}{pd}\PY{o}{.}\PY{n}{DataFrame}\PY{p}{)}
+{\color{incolor}In [{\color{incolor}9}]:} \PY{k}{assert} \PY{n+nb}{isinstance}\PY{p}{(}\PY{n}{bike}\PY{p}{,} \PY{n}{pd}\PY{o}{.}\PY{n}{DataFrame}\PY{p}{)}
         \PY{k}{assert} \PY{n}{bike}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{holiday}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{o}{.}\PY{n}{dtype} \PY{o}{==} \PY{n}{np}\PY{o}{.}\PY{n}{dtype}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{O}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
         \PY{k}{assert} \PY{n+nb}{list}\PY{p}{(}\PY{n}{bike}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{holiday}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{o}{.}\PY{n}{iloc}\PY{p}{[}\PY{l+m+mi}{370}\PY{p}{:}\PY{l+m+mi}{375}\PY{p}{]}\PY{p}{)} \PY{o}{==} \PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{no}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{no}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{yes}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{yes}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{yes}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}
         \PY{k}{assert} \PY{n}{bike}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{weekday}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{o}{.}\PY{n}{dtype} \PY{o}{==} \PY{n}{np}\PY{o}{.}\PY{n}{dtype}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{O}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
@@ -690,15 +738,15 @@ How many entries in the data correspond to holidays? Set the variable
 \texttt{num\_holidays} to this value.
 
     \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor} }]:} \PY{n}{num\PYZus{}holidays} \PY{o}{=} \PY{o}{.}\PY{o}{.}\PY{o}{.}
-        
-        \PY{c+c1}{\PYZsh{} YOUR CODE HERE}
-        \PY{k}{raise} \PY{n+ne}{NotImplementedError}\PY{p}{(}\PY{p}{)}
+{\color{incolor}In [{\color{incolor}10}]:} \PY{n}{num\PYZus{}holidays} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{sum}\PY{p}{(}\PY{n}{bike}\PY{o}{.}\PY{n}{holiday} \PY{o}{==} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{yes}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+         
+         \PY{c+c1}{\PYZsh{} YOUR CODE HERE}
+         \PY{c+c1}{\PYZsh{} raise NotImplementedError()}
 \end{Verbatim}
 
 
     \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor} }]:} \PY{k}{assert} \PY{l+m+mi}{400} \PY{o}{\PYZlt{}}\PY{o}{=} \PY{n}{num\PYZus{}holidays} \PY{o}{\PYZlt{}}\PY{o}{=} \PY{l+m+mi}{550}
+{\color{incolor}In [{\color{incolor}11}]:} \PY{k}{assert} \PY{l+m+mi}{400} \PY{o}{\PYZlt{}}\PY{o}{=} \PY{n}{num\PYZus{}holidays} \PY{o}{\PYZlt{}}\PY{o}{=} \PY{l+m+mi}{550}
 \end{Verbatim}
 
 
@@ -727,16 +775,16 @@ Take a look at the \texttt{\textquotesingle{}first\textquotesingle{}} or
 \texttt{\textquotesingle{}last\textquotesingle{}} aggregation functions.
 
     \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor} }]:} \PY{n}{daily\PYZus{}counts} \PY{o}{=} \PY{o}{.}\PY{o}{.}\PY{o}{.}
-        
-        \PY{c+c1}{\PYZsh{} YOUR CODE HERE}
-        \PY{k}{raise} \PY{n+ne}{NotImplementedError}\PY{p}{(}\PY{p}{)}
+{\color{incolor}In [{\color{incolor}12}]:} \PY{n}{daily\PYZus{}counts} \PY{o}{=} \PY{n}{bike}\PY{p}{[}\PY{p}{[}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{dteday}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{casual}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{registered}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{workingday}\PY{l+s+s2}{\PYZdq{}}\PY{p}{]}\PY{p}{]}\PY{o}{.}\PY{n}{groupby}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{dteday}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}\PY{o}{.}\PY{n}{agg}\PY{p}{(}\PY{p}{\PYZob{}}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{casual}\PY{l+s+s2}{\PYZdq{}}\PY{p}{:} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{sum}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{registered}\PY{l+s+s2}{\PYZdq{}}\PY{p}{:} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{sum}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{workingday}\PY{l+s+s2}{\PYZdq{}}\PY{p}{:} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{first}\PY{l+s+s2}{\PYZdq{}}\PY{p}{\PYZcb{}}\PY{p}{)}
+         
+         \PY{c+c1}{\PYZsh{} YOUR CODE HERE}
+         \PY{c+c1}{\PYZsh{} raise NotImplementedError()}
 \end{Verbatim}
 
 
     \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor} }]:} \PY{k}{assert} \PY{n}{np}\PY{o}{.}\PY{n}{round}\PY{p}{(}\PY{n}{daily\PYZus{}counts}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{casual}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{o}{.}\PY{n}{mean}\PY{p}{(}\PY{p}{)}\PY{p}{)} \PY{o}{==} \PY{l+m+mf}{848.0}
-        \PY{k}{assert} \PY{n}{np}\PY{o}{.}\PY{n}{round}\PY{p}{(}\PY{n}{daily\PYZus{}counts}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{casual}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{o}{.}\PY{n}{var}\PY{p}{(}\PY{p}{)}\PY{p}{)} \PY{o}{==} \PY{l+m+mf}{471450.0}
+{\color{incolor}In [{\color{incolor}13}]:} \PY{k}{assert} \PY{n}{np}\PY{o}{.}\PY{n}{round}\PY{p}{(}\PY{n}{daily\PYZus{}counts}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{casual}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{o}{.}\PY{n}{mean}\PY{p}{(}\PY{p}{)}\PY{p}{)} \PY{o}{==} \PY{l+m+mf}{848.0}
+         \PY{k}{assert} \PY{n}{np}\PY{o}{.}\PY{n}{round}\PY{p}{(}\PY{n}{daily\PYZus{}counts}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{casual}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{o}{.}\PY{n}{var}\PY{p}{(}\PY{p}{)}\PY{p}{)} \PY{o}{==} \PY{l+m+mf}{471450.0}
 \end{Verbatim}
 
 
@@ -768,13 +816,26 @@ registered riders we expect is \textasciitilde{}4000, but it could be
 anywher from almost none to 7000.
 
     \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor} }]:} \PY{o}{.}\PY{o}{.}\PY{o}{.}
-        
-        \PY{c+c1}{\PYZsh{} YOUR CODE HERE}
-        \PY{k}{raise} \PY{n+ne}{NotImplementedError}\PY{p}{(}\PY{p}{)}
+{\color{incolor}In [{\color{incolor}14}]:} \PY{n}{sns}\PY{o}{.}\PY{n}{distplot}\PY{p}{(}\PY{n}{daily\PYZus{}counts}\PY{o}{.}\PY{n}{casual}\PY{p}{)}
+         \PY{n}{sns}\PY{o}{.}\PY{n}{distplot}\PY{p}{(}\PY{n}{daily\PYZus{}counts}\PY{o}{.}\PY{n}{registered}\PY{p}{)}
+         \PY{n}{plt}\PY{o}{.}\PY{n}{xlabel}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Rider Count}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+         \PY{n}{plt}\PY{o}{.}\PY{n}{ylabel}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Density}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+         \PY{n}{plt}\PY{o}{.}\PY{n}{title}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Distribution Comparison of Casual vs Registered Riders}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+         \PY{n}{plt}\PY{o}{.}\PY{n}{legend}\PY{p}{(}\PY{p}{[}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{casual}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{registered}\PY{l+s+s2}{\PYZdq{}}\PY{p}{]}\PY{p}{)}
+         \PY{c+c1}{\PYZsh{} YOUR CODE HERE}
+         \PY{c+c1}{\PYZsh{} raise NotImplementedError()}
 \end{Verbatim}
 
 
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}14}]:} <matplotlib.legend.Legend at 0x7fa845eeb358>
+\end{Verbatim}
+            
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_28_1.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
     \subsubsection{Question 2b}\label{question-2b}
 
 In the cell below, descibe the differences you notice between the
@@ -783,10 +844,12 @@ as modes, symmetry, skewness, tails, gaps and outliers. Include a
 comment on the spread of the distributions.
 
     \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor} }]:} \PY{n}{q2b} \PY{o}{=} \PY{o}{.}\PY{o}{.}\PY{o}{.}
-        
-        \PY{c+c1}{\PYZsh{} YOUR CODE HERE}
-        \PY{k}{raise} \PY{n+ne}{NotImplementedError}\PY{p}{(}\PY{p}{)}
+{\color{incolor}In [{\color{incolor}35}]:} \PY{n}{q2b} \PY{o}{=} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{The distribution of casual users is non\PYZhy{}symmetry, right\PYZhy{}skewed with tail on the right }\PY{l+s+se}{\PYZbs{}}
+         \PY{l+s+s2}{and has several very large outliers. The distribution of registered users is kind of symmetry, }\PY{l+s+se}{\PYZbs{}}
+         \PY{l+s+s2}{have both very small and very large outliers.}\PY{l+s+s2}{\PYZdq{}}
+         
+         \PY{c+c1}{\PYZsh{} YOUR CODE HERE}
+         \PY{c+c1}{\PYZsh{} raise NotImplementedError()}
 \end{Verbatim}
 
 
@@ -817,15 +880,24 @@ sure to include a title.
 \end{itemize}
 
     \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor} }]:} \PY{c+c1}{\PYZsh{} Make the font size a bit bigger}
-        \PY{n}{sns}\PY{o}{.}\PY{n}{set}\PY{p}{(}\PY{n}{font\PYZus{}scale}\PY{o}{=}\PY{l+m+mf}{1.5}\PY{p}{)}
-        \PY{o}{.}\PY{o}{.}\PY{o}{.}
-        
-        \PY{c+c1}{\PYZsh{} YOUR CODE HERE}
-        \PY{k}{raise} \PY{n+ne}{NotImplementedError}\PY{p}{(}\PY{p}{)}
+{\color{incolor}In [{\color{incolor}36}]:} \PY{c+c1}{\PYZsh{} Make the font size a bit bigger}
+         \PY{n}{sns}\PY{o}{.}\PY{n}{set}\PY{p}{(}\PY{n}{font\PYZus{}scale}\PY{o}{=}\PY{l+m+mf}{1.5}\PY{p}{)}
+         \PY{n}{sns}\PY{o}{.}\PY{n}{lmplot}\PY{p}{(}\PY{n}{x}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{casual}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{y}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{registered}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{data}\PY{o}{=}\PY{n}{bike}\PY{p}{,} \PY{n}{hue}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{workingday}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{scatter\PYZus{}kws}\PY{o}{=}\PY{p}{\PYZob{}}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{s}\PY{l+s+s2}{\PYZdq{}}\PY{p}{:} \PY{l+m+mi}{10}\PY{p}{\PYZcb{}}\PY{p}{,} \PY{n}{height}\PY{o}{=}\PY{l+m+mi}{8}\PY{p}{)}
+         \PY{n}{plt}\PY{o}{.}\PY{n}{title}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Comparison of Casual vs Registered Riders on Working and Non\PYZhy{}working Days}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+         \PY{c+c1}{\PYZsh{} YOUR CODE HERE}
+         \PY{c+c1}{\PYZsh{} raise NotImplementedError()}
 \end{Verbatim}
 
 
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}36}]:} Text(0.5,1,'Comparison of Casual vs Registered Riders on Working and Non-working Days')
+\end{Verbatim}
+            
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_32_1.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
     \subsubsection{Question 2d}\label{question-2d}
 
 What does this scatterplot seem to reveal about the relationship (if
@@ -838,10 +910,12 @@ chapter 6.5 of the
 \href{http://www.textbook.ds100.org/ch/06/viz_principles_2.html}{textbook}.
 
     \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor} }]:} \PY{n}{q2d} \PY{o}{=} \PY{o}{.}\PY{o}{.}\PY{o}{.}
-        
-        \PY{c+c1}{\PYZsh{} YOUR CODE HERE}
-        \PY{k}{raise} \PY{n+ne}{NotImplementedError}\PY{p}{(}\PY{p}{)}
+{\color{incolor}In [{\color{incolor}17}]:} \PY{n}{q2d} \PY{o}{=} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{The amount of casual and registered riders seem to have a positive correlation. }\PY{l+s+se}{\PYZbs{}}
+         \PY{l+s+s2}{The trend is obvious both on weekday and weekend. From the plot, many points clustered, }\PY{l+s+se}{\PYZbs{}}
+         \PY{l+s+s2}{thus make it difficult to tell the distribution of points in left\PYZhy{}bottom corner.}\PY{l+s+s2}{\PYZdq{}}
+         
+         \PY{c+c1}{\PYZsh{} YOUR CODE HERE}
+         \PY{c+c1}{\PYZsh{} raise NotImplementedError()}
 \end{Verbatim}
 
 
@@ -876,11 +950,16 @@ this plot includes both weekend and weekday data, which isn't what we
 want (see example figure above).
 
     \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor} }]:} \PY{n}{sns}\PY{o}{.}\PY{n}{kdeplot}\PY{p}{(}\PY{n}{daily\PYZus{}counts}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{casual}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{,} \PY{n}{daily\PYZus{}counts}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{registered}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{)}
-        \PY{n}{plt}\PY{o}{.}\PY{n}{title}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{KDE Plot Comparison of Registered vs Casual Riders}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{p}{;}
+{\color{incolor}In [{\color{incolor}18}]:} \PY{n}{sns}\PY{o}{.}\PY{n}{kdeplot}\PY{p}{(}\PY{n}{daily\PYZus{}counts}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{casual}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{,} \PY{n}{daily\PYZus{}counts}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{registered}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{)}
+         \PY{n}{plt}\PY{o}{.}\PY{n}{title}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{KDE Plot Comparison of Registered vs Casual Riders}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{p}{;}
 \end{Verbatim}
 
 
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_37_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
     Generating the plot with weekend and weekday separated can be
 complicated so we will provide a walkthrough below, feel free to use
 whatever method you wish however if you do not want to follow the
@@ -905,30 +984,43 @@ the shaded and unshaded version. Please submit your work with
 \texttt{shade=False}.
 
     \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor} }]:} \PY{k+kn}{import} \PY{n+nn}{matplotlib}\PY{n+nn}{.}\PY{n+nn}{patches} \PY{k}{as} \PY{n+nn}{mpatches}  \PY{c+c1}{\PYZsh{} see the tutorial for how we use mpatches to generate this figure!}
-        
-        \PY{c+c1}{\PYZsh{} Set \PYZsq{}is\PYZus{}workingday\PYZsq{} to a boolean array that is true for all working\PYZus{}days}
-        \PY{n}{is\PYZus{}workingday} \PY{o}{=} \PY{o}{.}\PY{o}{.}\PY{o}{.}
-        
-        \PY{c+c1}{\PYZsh{} Bivariate KDEs require two data inputs. }
-        \PY{c+c1}{\PYZsh{} In this case, we will need the daily counts for casual and registered riders on weekdays}
-        \PY{c+c1}{\PYZsh{} Hint: use loc and is\PYZus{}workingday to splice out the relevant rows and column (casual/registered). }
-        \PY{n}{casual\PYZus{}weekday} \PY{o}{=} \PY{o}{.}\PY{o}{.}\PY{o}{.}
-        \PY{n}{registered\PYZus{}weekday} \PY{o}{=} \PY{o}{.}\PY{o}{.}\PY{o}{.}
-        
-        \PY{c+c1}{\PYZsh{} Use sns.kdeplot on the two variables above to plot the bivariate KDE for weekday rides}
-        
-        \PY{c+c1}{\PYZsh{} Repeat the same steps above but for rows corresponding to non\PYZhy{}workingdays}
-        \PY{n}{casual\PYZus{}weekend} \PY{o}{=} \PY{o}{.}\PY{o}{.}\PY{o}{.}
-        \PY{n}{registered\PYZus{}weekend} \PY{o}{=} \PY{o}{.}\PY{o}{.}\PY{o}{.}
-        
-        \PY{c+c1}{\PYZsh{} Use sns.kdeplot on the two variables above to plot the bivariate KDE for weekday rides}
-        
-        \PY{c+c1}{\PYZsh{} YOUR CODE HERE}
-        \PY{k}{raise} \PY{n+ne}{NotImplementedError}\PY{p}{(}\PY{p}{)}
+{\color{incolor}In [{\color{incolor}19}]:} \PY{k+kn}{import} \PY{n+nn}{matplotlib}\PY{n+nn}{.}\PY{n+nn}{patches} \PY{k}{as} \PY{n+nn}{mpatches}  \PY{c+c1}{\PYZsh{} see the tutorial for how we use mpatches to generate this figure!}
+         
+         \PY{c+c1}{\PYZsh{} Set \PYZsq{}is\PYZus{}workingday\PYZsq{} to a boolean array that is true for all working\PYZus{}days}
+         \PY{n}{is\PYZus{}workingday} \PY{o}{=} \PY{n}{daily\PYZus{}counts}\PY{o}{.}\PY{n}{workingday} \PY{o}{==} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{yes}\PY{l+s+s2}{\PYZdq{}}
+         
+         \PY{c+c1}{\PYZsh{} Bivariate KDEs require two data inputs. }
+         \PY{c+c1}{\PYZsh{} In this case, we will need the daily counts for casual and registered riders on weekdays}
+         \PY{c+c1}{\PYZsh{} Hint: use loc and is\PYZus{}workingday to splice out the relevant rows and column (casual/registered). }
+         \PY{n}{casual\PYZus{}weekday} \PY{o}{=} \PY{n}{daily\PYZus{}counts}\PY{p}{[}\PY{n}{is\PYZus{}workingday}\PY{p}{]}\PY{o}{.}\PY{n}{casual}
+         \PY{n}{registered\PYZus{}weekday} \PY{o}{=} \PY{n}{daily\PYZus{}counts}\PY{p}{[}\PY{n}{is\PYZus{}workingday}\PY{p}{]}\PY{o}{.}\PY{n}{registered}
+         
+         \PY{c+c1}{\PYZsh{} Use sns.kdeplot on the two variables above to plot the bivariate KDE for weekday rides}
+         \PY{n}{sns}\PY{o}{.}\PY{n}{kdeplot}\PY{p}{(}\PY{n}{casual\PYZus{}weekday}\PY{p}{,} \PY{n}{registered\PYZus{}weekday}\PY{p}{,} \PY{n}{cmap}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Reds}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{shade}\PY{o}{=}\PY{k+kc}{False}\PY{p}{)}
+         \PY{c+c1}{\PYZsh{} Repeat the same steps above but for rows corresponding to non\PYZhy{}workingdays}
+         \PY{n}{casual\PYZus{}weekend} \PY{o}{=} \PY{n}{daily\PYZus{}counts}\PY{p}{[}\PY{o}{\PYZti{}} \PY{n}{is\PYZus{}workingday}\PY{p}{]}\PY{o}{.}\PY{n}{casual}
+         \PY{n}{registered\PYZus{}weekend} \PY{o}{=} \PY{n}{daily\PYZus{}counts}\PY{p}{[}\PY{o}{\PYZti{}} \PY{n}{is\PYZus{}workingday}\PY{p}{]}\PY{o}{.}\PY{n}{registered}
+         
+         \PY{c+c1}{\PYZsh{} Use sns.kdeplot on the two variables above to plot the bivariate KDE for weekday rides}
+         \PY{n}{sns}\PY{o}{.}\PY{n}{kdeplot}\PY{p}{(}\PY{n}{casual\PYZus{}weekend}\PY{p}{,} \PY{n}{registered\PYZus{}weekend}\PY{p}{,} \PY{n}{cmap}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Blues}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{shade}\PY{o}{=}\PY{k+kc}{False}\PY{p}{,} \PY{n}{legend}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Non\PYZhy{}Workday}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+         
+         \PY{n}{red\PYZus{}patch} \PY{o}{=} \PY{n}{mpatches}\PY{o}{.}\PY{n}{Patch}\PY{p}{(}\PY{n}{color}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{r}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{label}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Workday}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+         \PY{n}{blue\PYZus{}patch} \PY{o}{=} \PY{n}{mpatches}\PY{o}{.}\PY{n}{Patch}\PY{p}{(}\PY{n}{color}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{b}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{label}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Non\PYZhy{}Workday}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+         \PY{n}{plt}\PY{o}{.}\PY{n}{legend}\PY{p}{(}\PY{n}{handles}\PY{o}{=}\PY{p}{[}\PY{n}{red\PYZus{}patch}\PY{p}{,} \PY{n}{blue\PYZus{}patch}\PY{p}{]}\PY{p}{)}
+         \PY{c+c1}{\PYZsh{} YOUR CODE HERE}
+         \PY{c+c1}{\PYZsh{} raise NotImplementedError()}
 \end{Verbatim}
 
 
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}19}]:} <matplotlib.legend.Legend at 0x7fa84410eb00>
+\end{Verbatim}
+            
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_39_1.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
     \paragraph{Question 3b}\label{question-3b}
 
 What does the contour plot suggest about the relationship between casual
@@ -937,10 +1029,11 @@ it's easier to see the relationship on this countour plot, or on the
 plot you created for 2c? Why?
 
     \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor} }]:} \PY{n}{q3b} \PY{o}{=} \PY{o}{.}\PY{o}{.}\PY{o}{.}
-        
-        \PY{c+c1}{\PYZsh{} YOUR CODE HERE}
-        \PY{k}{raise} \PY{n+ne}{NotImplementedError}\PY{p}{(}\PY{p}{)}
+{\color{incolor}In [{\color{incolor}20}]:} \PY{n}{q3b} \PY{o}{=} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{For workdays and non\PYZhy{}work days, the relationship between casual riders and registered riders are positive.}\PY{l+s+se}{\PYZbs{}}
+         \PY{l+s+s2}{It}\PY{l+s+s2}{\PYZsq{}}\PY{l+s+s2}{s more easier for us to see the relatioinship for countour plot avoids the over\PYZhy{}fitting problem.}\PY{l+s+s2}{\PYZdq{}}
+         
+         \PY{c+c1}{\PYZsh{} YOUR CODE HERE}
+         \PY{c+c1}{\PYZsh{} raise NotImplementedError()}
 \end{Verbatim}
 
 
@@ -965,13 +1058,20 @@ title where you want. * \texttt{plt.subplots\_adjust(top=0.9)} can help
 if your title overlaps with your plot
 
     \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor} }]:} \PY{o}{.}\PY{o}{.}\PY{o}{.}
-        
-        \PY{c+c1}{\PYZsh{} YOUR CODE HERE}
-        \PY{k}{raise} \PY{n+ne}{NotImplementedError}\PY{p}{(}\PY{p}{)}
+{\color{incolor}In [{\color{incolor}21}]:} \PY{n}{sns}\PY{o}{.}\PY{n}{jointplot}\PY{p}{(}\PY{n}{x}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{casual}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{y}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{registered}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{data}\PY{o}{=}\PY{n}{daily\PYZus{}counts}\PY{p}{,} \PY{n}{kind}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{kde}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)} \PYZbs{}
+            \PY{o}{.}\PY{n}{set\PYZus{}axis\PYZus{}labels}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Daily Count Casual Riders}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Daily Count Registered Riders}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+         \PY{n}{plt}\PY{o}{.}\PY{n}{suptitle}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{KDE Contours of Casual vs Registered Rider Count}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+         \PY{n}{plt}\PY{o}{.}\PY{n}{subplots\PYZus{}adjust}\PY{p}{(}\PY{n}{top}\PY{o}{=}\PY{l+m+mf}{0.9}\PY{p}{)}
+         \PY{c+c1}{\PYZsh{} YOUR CODE HERE}
+         \PY{c+c1}{\PYZsh{} raise NotImplementedError()}
 \end{Verbatim}
 
 
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_43_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
     \begin{center}\rule{0.5\linewidth}{\linethickness}\end{center}
 
 \subsection{4: Exploring Ride Sharing and
@@ -1000,13 +1100,28 @@ Make sure your day series is of type int. One way is to use the
 \texttt{sns.lineplot}.
 
     \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor} }]:} \PY{o}{.}\PY{o}{.}\PY{o}{.}
-        
-        \PY{c+c1}{\PYZsh{} YOUR CODE HERE}
-        \PY{k}{raise} \PY{n+ne}{NotImplementedError}\PY{p}{(}\PY{p}{)}
+{\color{incolor}In [{\color{incolor}22}]:} \PY{n}{bike}\PY{p}{[}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{day}\PY{l+s+s2}{\PYZdq{}}\PY{p}{]} \PY{o}{=} \PY{n}{bike}\PY{o}{.}\PY{n}{dteday}\PY{o}{.}\PY{n}{str}\PY{p}{[}\PY{o}{\PYZhy{}}\PY{l+m+mi}{2}\PY{p}{:}\PY{p}{]}\PY{o}{.}\PY{n}{map}\PY{p}{(}\PY{n+nb}{int}\PY{p}{)}
+         \PY{n}{june\PYZus{}daily\PYZus{}counts} \PY{o}{=} \PY{n}{bike}\PY{p}{[}\PY{n}{bike}\PY{o}{.}\PY{n}{dteday}\PY{o}{.}\PY{n}{str}\PY{p}{[}\PY{p}{:}\PY{l+m+mi}{7}\PY{p}{]} \PY{o}{==} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{2011\PYZhy{}06}\PY{l+s+s2}{\PYZdq{}}\PY{p}{]}\PY{p}{[}\PY{p}{[}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{casual}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{registered}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{day}\PY{l+s+s2}{\PYZdq{}}\PY{p}{]}\PY{p}{]}
+         \PY{n}{sns}\PY{o}{.}\PY{n}{lineplot}\PY{p}{(}\PY{n}{x}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{day}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{y}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{casual}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{data}\PY{o}{=}\PY{n}{june\PYZus{}daily\PYZus{}counts}\PY{p}{)}
+         \PY{n}{sns}\PY{o}{.}\PY{n}{lineplot}\PY{p}{(}\PY{n}{x}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{day}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{y}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{registered}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{data}\PY{o}{=}\PY{n}{june\PYZus{}daily\PYZus{}counts}\PY{p}{)}
+         \PY{n}{plt}\PY{o}{.}\PY{n}{xlabel}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Day of the Month}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+         \PY{n}{plt}\PY{o}{.}\PY{n}{ylabel}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Number of Riders}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+         \PY{n}{plt}\PY{o}{.}\PY{n}{legend}\PY{p}{(}\PY{p}{[}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{casual}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{registered}\PY{l+s+s2}{\PYZdq{}}\PY{p}{]}\PY{p}{)}
+         \PY{n}{plt}\PY{o}{.}\PY{n}{title}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Count of Casual vs Registered Riders by Day}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+         \PY{c+c1}{\PYZsh{} YOUR CODE HERE}
+         \PY{c+c1}{\PYZsh{} raise NotImplementedError()}
 \end{Verbatim}
 
 
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}22}]:} Text(0.5,1,'Count of Casual vs Registered Riders by Day')
+\end{Verbatim}
+            
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_45_1.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
     \paragraph{Question 4b}\label{question-4b}
 
 This plot has several interesting features. How do the number of casual
@@ -1016,10 +1131,12 @@ you think the confidence interval for the registered riders is, on
 average, wider than the confidence interval for casual riders?
 
     \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor} }]:} \PY{n}{q4b} \PY{o}{=} \PY{o}{.}\PY{o}{.}\PY{o}{.}
-        
-        \PY{c+c1}{\PYZsh{} YOUR CODE HERE}
-        \PY{k}{raise} \PY{n+ne}{NotImplementedError}\PY{p}{(}\PY{p}{)}
+{\color{incolor}In [{\color{incolor}23}]:} \PY{n}{q4b} \PY{o}{=} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{The number of registered riders will always larger than that of casual riders. }\PY{l+s+se}{\PYZbs{}}
+         \PY{l+s+s2}{The amount of casual and registered users go up and down periodically, the period is about 7 days (1 week). }\PY{l+s+se}{\PYZbs{}}
+         \PY{l+s+s2}{The reason why the confidence interval for the registered riders is that the number varies more.}\PY{l+s+s2}{\PYZdq{}}
+         
+         \PY{c+c1}{\PYZsh{} YOUR CODE HERE}
+         \PY{c+c1}{\PYZsh{} raise NotImplementedError()}
 \end{Verbatim}
 
 
@@ -1039,23 +1156,40 @@ just June 2011), stratified by rider type.
 Your plot should look like the following:
 
     \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor} }]:} \PY{o}{.}\PY{o}{.}\PY{o}{.}
-        
-        \PY{c+c1}{\PYZsh{} YOUR CODE HERE}
-        \PY{k}{raise} \PY{n+ne}{NotImplementedError}\PY{p}{(}\PY{p}{)}
+{\color{incolor}In [{\color{incolor}24}]:} \PY{n}{hour\PYZus{}counts} \PY{o}{=} \PY{n}{bike}\PY{p}{[}\PY{p}{[}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{casual}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{registered}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{hr}\PY{l+s+s2}{\PYZdq{}}\PY{p}{]}\PY{p}{]}\PY{o}{.}\PY{n}{groupby}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{hr}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}\PY{o}{.}\PY{n}{mean}\PY{p}{(}\PY{p}{)}
+         \PY{n}{hour\PYZus{}counts}\PY{p}{[}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{hr}\PY{l+s+s2}{\PYZdq{}}\PY{p}{]} \PY{o}{=} \PY{n}{hour\PYZus{}counts}\PY{o}{.}\PY{n}{index}\PY{o}{.}\PY{n}{values}
+         \PY{n}{sns}\PY{o}{.}\PY{n}{lineplot}\PY{p}{(}\PY{n}{x}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{hr}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{y}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{casual}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{data}\PY{o}{=}\PY{n}{hour\PYZus{}counts}\PY{p}{)}
+         \PY{n}{sns}\PY{o}{.}\PY{n}{lineplot}\PY{p}{(}\PY{n}{x}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{hr}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{y}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{registered}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{data}\PY{o}{=}\PY{n}{hour\PYZus{}counts}\PY{p}{)}
+         \PY{n}{plt}\PY{o}{.}\PY{n}{xlabel}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Hour of the Day}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+         \PY{n}{plt}\PY{o}{.}\PY{n}{ylabel}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Average Count}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+         \PY{n}{plt}\PY{o}{.}\PY{n}{legend}\PY{p}{(}\PY{p}{[}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{casual}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{registered}\PY{l+s+s2}{\PYZdq{}}\PY{p}{]}\PY{p}{)}
+         \PY{n}{plt}\PY{o}{.}\PY{n}{title}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Average Count of Casual vs Registered by Hour}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+         \PY{c+c1}{\PYZsh{} YOUR CODE HERE}
+         \PY{c+c1}{\PYZsh{} raise NotImplementedError()}
 \end{Verbatim}
 
 
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}24}]:} Text(0.5,1,'Average Count of Casual vs Registered by Hour')
+\end{Verbatim}
+            
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_49_1.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
     \paragraph{Question 5b}\label{question-5b}
 
 What can you observe from the plot? Hypothesize about the meaning of the
 peaks in the registered riders' distribution.
 
     \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor} }]:} \PY{n}{q5b} \PY{o}{=} \PY{o}{.}\PY{o}{.}\PY{o}{.}
-        
-        \PY{c+c1}{\PYZsh{} YOUR CODE HERE}
-        \PY{k}{raise} \PY{n+ne}{NotImplementedError}\PY{p}{(}\PY{p}{)}
+{\color{incolor}In [{\color{incolor}25}]:} \PY{n}{q5b} \PY{o}{=} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{There are two peaks for registered users to ride, while the trend of casual users are more gentle. }\PY{l+s+se}{\PYZbs{}}
+         \PY{l+s+s2}{The first peak may correspond to the morning\PYZhy{}rush\PYZhy{}hour, which means people ride to work. The second peak }\PY{l+s+se}{\PYZbs{}}
+         \PY{l+s+s2}{accordingly corresponds to the evening\PYZhy{}rush\PYZhy{}hour, when people get back from work and ride home.}\PY{l+s+s2}{\PYZdq{}}
+         
+         \PY{c+c1}{\PYZsh{} YOUR CODE HERE}
+         \PY{c+c1}{\PYZsh{} raise NotImplementedError()}
 \end{Verbatim}
 
 
@@ -1076,19 +1210,19 @@ Create a new column \texttt{prop\_casual} in the \texttt{bike} dataframe
 representing the proportion of casual riders out of all riders.
 
     \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor} }]:} \PY{o}{.}\PY{o}{.}\PY{o}{.}
-        
-        \PY{c+c1}{\PYZsh{} YOUR CODE HERE}
-        \PY{k}{raise} \PY{n+ne}{NotImplementedError}\PY{p}{(}\PY{p}{)}
+{\color{incolor}In [{\color{incolor}26}]:} \PY{n}{bike}\PY{p}{[}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{prop\PYZus{}casual}\PY{l+s+s2}{\PYZdq{}}\PY{p}{]} \PY{o}{=} \PY{n}{bike}\PY{o}{.}\PY{n}{casual} \PY{o}{/} \PY{p}{(}\PY{n}{bike}\PY{o}{.}\PY{n}{casual} \PY{o}{+} \PY{n}{bike}\PY{o}{.}\PY{n}{registered}\PY{p}{)}
+         
+         \PY{c+c1}{\PYZsh{} YOUR CODE HERE}
+         \PY{c+c1}{\PYZsh{} raise NotImplementedError()}
 \end{Verbatim}
 
 
     \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor} }]:} \PY{k}{assert} \PY{n+nb}{int}\PY{p}{(}\PY{n}{bike}\PY{p}{[}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{prop\PYZus{}casual}\PY{l+s+s2}{\PYZdq{}}\PY{p}{]}\PY{o}{.}\PY{n}{sum}\PY{p}{(}\PY{p}{)}\PY{p}{)} \PY{o}{==} \PY{l+m+mi}{2991}
-        
-        \PY{c+c1}{\PYZsh{}\PYZsh{}\PYZsh{} BEGIN HIDDEN TEST}
-        \PY{k}{assert} \PY{n}{np}\PY{o}{.}\PY{n}{round}\PY{p}{(}\PY{n}{bike}\PY{p}{[}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{prop\PYZus{}casual}\PY{l+s+s2}{\PYZdq{}}\PY{p}{]}\PY{o}{.}\PY{n}{mean}\PY{p}{(}\PY{p}{)}\PY{p}{,} \PY{l+m+mi}{2}\PY{p}{)} \PY{o}{==} \PY{l+m+mf}{0.17}
-        \PY{c+c1}{\PYZsh{}\PYZsh{}\PYZsh{} END HIDDEN TEST}
+{\color{incolor}In [{\color{incolor}27}]:} \PY{k}{assert} \PY{n+nb}{int}\PY{p}{(}\PY{n}{bike}\PY{p}{[}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{prop\PYZus{}casual}\PY{l+s+s2}{\PYZdq{}}\PY{p}{]}\PY{o}{.}\PY{n}{sum}\PY{p}{(}\PY{p}{)}\PY{p}{)} \PY{o}{==} \PY{l+m+mi}{2991}
+         
+         \PY{c+c1}{\PYZsh{}\PYZsh{}\PYZsh{} BEGIN HIDDEN TEST}
+         \PY{k}{assert} \PY{n}{np}\PY{o}{.}\PY{n}{round}\PY{p}{(}\PY{n}{bike}\PY{p}{[}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{prop\PYZus{}casual}\PY{l+s+s2}{\PYZdq{}}\PY{p}{]}\PY{o}{.}\PY{n}{mean}\PY{p}{(}\PY{p}{)}\PY{p}{,} \PY{l+m+mi}{2}\PY{p}{)} \PY{o}{==} \PY{l+m+mf}{0.17}
+         \PY{c+c1}{\PYZsh{}\PYZsh{}\PYZsh{} END HIDDEN TEST}
 \end{Verbatim}
 
 
@@ -1101,21 +1235,31 @@ information about day of week. Run the cell below, and you'll see we end
 up with a big mess that is impossible to interpret.
 
     \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor} }]:} \PY{n}{plt}\PY{o}{.}\PY{n}{figure}\PY{p}{(}\PY{n}{figsize}\PY{o}{=}\PY{p}{(}\PY{l+m+mi}{10}\PY{p}{,} \PY{l+m+mi}{7}\PY{p}{)}\PY{p}{)}
-        \PY{n}{sns}\PY{o}{.}\PY{n}{scatterplot}\PY{p}{(}\PY{n}{data}\PY{o}{=}\PY{n}{bike}\PY{p}{,} \PY{n}{x}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{temp}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{y}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{prop\PYZus{}casual}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{hue}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{weekday}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}\PY{p}{;}
+{\color{incolor}In [{\color{incolor}28}]:} \PY{n}{plt}\PY{o}{.}\PY{n}{figure}\PY{p}{(}\PY{n}{figsize}\PY{o}{=}\PY{p}{(}\PY{l+m+mi}{10}\PY{p}{,} \PY{l+m+mi}{7}\PY{p}{)}\PY{p}{)}
+         \PY{n}{sns}\PY{o}{.}\PY{n}{scatterplot}\PY{p}{(}\PY{n}{data}\PY{o}{=}\PY{n}{bike}\PY{p}{,} \PY{n}{x}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{temp}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{y}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{prop\PYZus{}casual}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{hue}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{weekday}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}\PY{p}{;}
 \end{Verbatim}
 
 
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_56_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
     We could attempt linear regression using \texttt{sns.lmplot} as shown
 below, which hint at some relationships between temperature and
 proportional casual, but the plot is still fairly unconvincing.
 
     \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor} }]:} \PY{n}{sns}\PY{o}{.}\PY{n}{lmplot}\PY{p}{(}\PY{n}{data}\PY{o}{=}\PY{n}{bike}\PY{p}{,} \PY{n}{x}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{temp}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{y}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{prop\PYZus{}casual}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{hue}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{weekday}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{scatter\PYZus{}kws}\PY{o}{=}\PY{p}{\PYZob{}}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{s}\PY{l+s+s2}{\PYZdq{}}\PY{p}{:} \PY{l+m+mi}{20}\PY{p}{\PYZcb{}}\PY{p}{,} \PY{n}{height}\PY{o}{=}\PY{l+m+mi}{10}\PY{p}{)}
-        \PY{n}{plt}\PY{o}{.}\PY{n}{title}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Proportion of Casual Riders by Weekday}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}\PY{p}{;}
+{\color{incolor}In [{\color{incolor}29}]:} \PY{n}{sns}\PY{o}{.}\PY{n}{lmplot}\PY{p}{(}\PY{n}{data}\PY{o}{=}\PY{n}{bike}\PY{p}{,} \PY{n}{x}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{temp}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{y}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{prop\PYZus{}casual}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{hue}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{weekday}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{scatter\PYZus{}kws}\PY{o}{=}\PY{p}{\PYZob{}}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{s}\PY{l+s+s2}{\PYZdq{}}\PY{p}{:} \PY{l+m+mi}{20}\PY{p}{\PYZcb{}}\PY{p}{,} \PY{n}{height}\PY{o}{=}\PY{l+m+mi}{10}\PY{p}{)}
+         \PY{n}{plt}\PY{o}{.}\PY{n}{title}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Proportion of Casual Riders by Weekday}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}\PY{p}{;}
 \end{Verbatim}
 
 
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_58_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
     A better approach is to use the "Local Smoothing" technique described in
 lecture. We saw an example of this with cherry blossom race times. As a
 reminder, the basic idea is that for each x value, we compute some sort
@@ -1125,19 +1269,24 @@ Smoothing" or LOWESS. An example is below. The red curve shown is a
 smoothed version of the scatterplot.
 
     \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor} }]:} \PY{k+kn}{from} \PY{n+nn}{statsmodels}\PY{n+nn}{.}\PY{n+nn}{nonparametric}\PY{n+nn}{.}\PY{n+nn}{smoothers\PYZus{}lowess} \PY{k}{import} \PY{n}{lowess}
-        \PY{c+c1}{\PYZsh{} Make noisy data}
-        \PY{n}{xobs} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{sort}\PY{p}{(}\PY{n}{np}\PY{o}{.}\PY{n}{random}\PY{o}{.}\PY{n}{rand}\PY{p}{(}\PY{l+m+mi}{100}\PY{p}{)}\PY{o}{*}\PY{l+m+mf}{4.0} \PY{o}{\PYZhy{}} \PY{l+m+mi}{2}\PY{p}{)}
-        \PY{n}{yobs} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{exp}\PY{p}{(}\PY{n}{xobs}\PY{p}{)} \PY{o}{+} \PY{n}{np}\PY{o}{.}\PY{n}{random}\PY{o}{.}\PY{n}{randn}\PY{p}{(}\PY{l+m+mi}{100}\PY{p}{)} \PY{o}{/} \PY{l+m+mf}{2.0}
-        \PY{n}{sns}\PY{o}{.}\PY{n}{scatterplot}\PY{p}{(}\PY{n}{xobs}\PY{p}{,} \PY{n}{yobs}\PY{p}{,} \PY{n}{label}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Raw Data}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
-        
-        \PY{c+c1}{\PYZsh{} Predict \PYZsq{}smoothed\PYZsq{} valued for observations}
-        \PY{n}{ysmooth} \PY{o}{=} \PY{n}{lowess}\PY{p}{(}\PY{n}{yobs}\PY{p}{,} \PY{n}{xobs}\PY{p}{,} \PY{n}{return\PYZus{}sorted}\PY{o}{=}\PY{k+kc}{False}\PY{p}{)}
-        \PY{n}{sns}\PY{o}{.}\PY{n}{lineplot}\PY{p}{(}\PY{n}{xobs}\PY{p}{,} \PY{n}{ysmooth}\PY{p}{,} \PY{n}{label}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Smoothed Estimator}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{color}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{red}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
-        \PY{n}{plt}\PY{o}{.}\PY{n}{legend}\PY{p}{(}\PY{p}{)}\PY{p}{;}
+{\color{incolor}In [{\color{incolor}30}]:} \PY{k+kn}{from} \PY{n+nn}{statsmodels}\PY{n+nn}{.}\PY{n+nn}{nonparametric}\PY{n+nn}{.}\PY{n+nn}{smoothers\PYZus{}lowess} \PY{k}{import} \PY{n}{lowess}
+         \PY{c+c1}{\PYZsh{} Make noisy data}
+         \PY{n}{xobs} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{sort}\PY{p}{(}\PY{n}{np}\PY{o}{.}\PY{n}{random}\PY{o}{.}\PY{n}{rand}\PY{p}{(}\PY{l+m+mi}{100}\PY{p}{)}\PY{o}{*}\PY{l+m+mf}{4.0} \PY{o}{\PYZhy{}} \PY{l+m+mi}{2}\PY{p}{)}
+         \PY{n}{yobs} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{exp}\PY{p}{(}\PY{n}{xobs}\PY{p}{)} \PY{o}{+} \PY{n}{np}\PY{o}{.}\PY{n}{random}\PY{o}{.}\PY{n}{randn}\PY{p}{(}\PY{l+m+mi}{100}\PY{p}{)} \PY{o}{/} \PY{l+m+mf}{2.0}
+         \PY{n}{sns}\PY{o}{.}\PY{n}{scatterplot}\PY{p}{(}\PY{n}{xobs}\PY{p}{,} \PY{n}{yobs}\PY{p}{,} \PY{n}{label}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Raw Data}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+         
+         \PY{c+c1}{\PYZsh{} Predict \PYZsq{}smoothed\PYZsq{} valued for observations}
+         \PY{n}{ysmooth} \PY{o}{=} \PY{n}{lowess}\PY{p}{(}\PY{n}{yobs}\PY{p}{,} \PY{n}{xobs}\PY{p}{,} \PY{n}{return\PYZus{}sorted}\PY{o}{=}\PY{k+kc}{False}\PY{p}{)}
+         \PY{n}{sns}\PY{o}{.}\PY{n}{lineplot}\PY{p}{(}\PY{n}{xobs}\PY{p}{,} \PY{n}{ysmooth}\PY{p}{,} \PY{n}{label}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Smoothed Estimator}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{color}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{red}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+         \PY{n}{plt}\PY{o}{.}\PY{n}{legend}\PY{p}{(}\PY{p}{)}\PY{p}{;}
 \end{Verbatim}
 
 
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_60_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
     In our case with the bike ridership data, we want 7 curves, one for each
 day of the week. The x-axis will be the temperature and the y-axis will
 be a smoothed version of the proportion of casual riders.
@@ -1163,15 +1312,34 @@ make sure you can do that first.
 Note: If you prefer putting your plot in Celsius, that's fine as well!
 
     \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor} }]:} \PY{k+kn}{from} \PY{n+nn}{statsmodels}\PY{n+nn}{.}\PY{n+nn}{nonparametric}\PY{n+nn}{.}\PY{n+nn}{smoothers\PYZus{}lowess} \PY{k}{import} \PY{n}{lowess}
-        
-        \PY{n}{plt}\PY{o}{.}\PY{n}{figure}\PY{p}{(}\PY{n}{figsize}\PY{o}{=}\PY{p}{(}\PY{l+m+mi}{10}\PY{p}{,}\PY{l+m+mi}{8}\PY{p}{)}\PY{p}{)}
-        
-        \PY{c+c1}{\PYZsh{} YOUR CODE HERE}
-        \PY{k}{raise} \PY{n+ne}{NotImplementedError}\PY{p}{(}\PY{p}{)}
+{\color{incolor}In [{\color{incolor}33}]:} \PY{k+kn}{from} \PY{n+nn}{statsmodels}\PY{n+nn}{.}\PY{n+nn}{nonparametric}\PY{n+nn}{.}\PY{n+nn}{smoothers\PYZus{}lowess} \PY{k}{import} \PY{n}{lowess}
+         
+         \PY{n}{plt}\PY{o}{.}\PY{n}{figure}\PY{p}{(}\PY{n}{figsize}\PY{o}{=}\PY{p}{(}\PY{l+m+mi}{10}\PY{p}{,}\PY{l+m+mi}{8}\PY{p}{)}\PY{p}{)}
+         \PY{n}{bike}\PY{p}{[}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{act\PYZus{}temp}\PY{l+s+s2}{\PYZdq{}}\PY{p}{]} \PY{o}{=} \PY{n}{bike}\PY{p}{[}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{temp}\PY{l+s+s2}{\PYZdq{}}\PY{p}{]} \PY{o}{*} \PY{l+m+mi}{41}
+         \PY{n}{week\PYZus{}days} \PY{o}{=} \PY{p}{[}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Sat}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Sun}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Mon}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Tue}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Wed}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Thu}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Fri}\PY{l+s+s2}{\PYZdq{}}\PY{p}{]}
+         \PY{k}{for} \PY{n}{week\PYZus{}day} \PY{o+ow}{in} \PY{n}{week\PYZus{}days}\PY{p}{:}
+             \PY{n}{oneday\PYZus{}data} \PY{o}{=} \PY{n}{bike}\PY{p}{[}\PY{n}{bike}\PY{o}{.}\PY{n}{weekday} \PY{o}{==} \PY{n}{week\PYZus{}day}\PY{p}{]}
+             \PY{n}{y\PYZus{}smooth} \PY{o}{=} \PY{n}{lowess}\PY{p}{(}\PY{n}{oneday\PYZus{}data}\PY{p}{[}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{prop\PYZus{}casual}\PY{l+s+s2}{\PYZdq{}}\PY{p}{]}\PY{p}{,} \PY{n}{oneday\PYZus{}data}\PY{p}{[}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{act\PYZus{}temp}\PY{l+s+s2}{\PYZdq{}}\PY{p}{]}\PY{o}{.}\PY{n}{values}\PY{p}{,} \PY{n}{return\PYZus{}sorted}\PY{o}{=}\PY{k+kc}{False}\PY{p}{)}
+             \PY{n}{sns}\PY{o}{.}\PY{n}{lineplot}\PY{p}{(}\PY{n}{oneday\PYZus{}data}\PY{p}{[}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{act\PYZus{}temp}\PY{l+s+s2}{\PYZdq{}}\PY{p}{]}\PY{o}{.}\PY{n}{values}\PY{p}{,} \PY{n}{y\PYZus{}smooth}\PY{p}{)}
+         
+         \PY{n}{plt}\PY{o}{.}\PY{n}{xlabel}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Temperature (Celsius)}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+         \PY{n}{plt}\PY{o}{.}\PY{n}{ylabel}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Casual Rider Proportion}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+         \PY{n}{plt}\PY{o}{.}\PY{n}{title}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Temprature vs Casual Rider Proportion by Weekday}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+         \PY{n}{plt}\PY{o}{.}\PY{n}{legend}\PY{p}{(}\PY{n}{week\PYZus{}days}\PY{p}{)}
+         \PY{c+c1}{\PYZsh{} YOUR CODE HERE}
+         \PY{c+c1}{\PYZsh{} raise NotImplementedError()}
 \end{Verbatim}
 
 
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}33}]:} <matplotlib.legend.Legend at 0x7fa83f43d438>
+\end{Verbatim}
+            
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_62_1.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
     \paragraph{Question 6c}\label{question-6c}
 
 What do you see from the curve plot? How is \texttt{prop\_casual}
@@ -1179,10 +1347,12 @@ changing as a function of temperature? Do you notice anything else
 interesting?
 
     \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor} }]:} \PY{n}{q6c} \PY{o}{=} \PY{o}{.}\PY{o}{.}\PY{o}{.}
-        
-        \PY{c+c1}{\PYZsh{} YOUR CODE HERE}
-        \PY{k}{raise} \PY{n+ne}{NotImplementedError}\PY{p}{(}\PY{p}{)}
+{\color{incolor}In [{\color{incolor}34}]:} \PY{n}{q6c} \PY{o}{=} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{`prop\PYZus{}casual` roughly has a positive linear correlation with temperature. As the temperature goes up, }\PY{l+s+se}{\PYZbs{}}
+         \PY{l+s+s2}{`prop\PYZus{}casual` will get bigger. Besides, in weekends, if the temperature goes up the same extent, `prop\PYZus{}casual` }\PY{l+s+se}{\PYZbs{}}
+         \PY{l+s+s2}{will go up more than in weekdays.}\PY{l+s+s2}{\PYZdq{}}
+         
+         \PY{c+c1}{\PYZsh{} YOUR CODE HERE}
+         \PY{c+c1}{\PYZsh{} raise NotImplementedError()}
 \end{Verbatim}
 
 
