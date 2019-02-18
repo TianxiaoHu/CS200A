@@ -1,7 +1,5 @@
 # CS200A
-Assignments, notes and projects for [CS200A(DS100)](http://www.ds100.org/fa18/) at UC Berkeley.
-
-- **/disc** folder contains the discussion materials
+Assignments, notes and projects for [CS200A(DS100)](http://www.ds100.org/fa18/) at UC Berkeley (18 fall).
 
 - **/hw** folder contains homework
 
@@ -11,10 +9,9 @@ Assignments, notes and projects for [CS200A(DS100)](http://www.ds100.org/fa18/) 
 
   (submit via DataHub, no hidden tests. released each Sunday noon and due each Monday midnight)
 
-- **/lec** folder contains demo notebooks used in lectures
+- **/proj** folder contains two projects done in the course
 
-- **/slide** folder contains the slides used in lectures
+The graduate version of this course also contains a "graduate project", repo [here](https://github.com/TianxiaoHu/ImageDetection).
 
-ref:
+For lecture, slides and discussion materials, please refer to https://github.com/DS-100 for the most updated  version.
 
-- https://github.com/DS-100
